@@ -59,6 +59,17 @@ void drawVector(Punto start, Vector vect) {
   PVector pVec = vect.toPVector();
 
   line(start.x, start.y, start.x + pVec.x, start.y + pVec.y);
+  
+  text("D" + "= ("+round(d.x/escala)+" , "+round(d.y/escala)+")",360,320);
+  text("A" + "= ("+round(a.x/escala)+" , "+round(a.y/escala)+")",300,440);
+  text("B" + "= ("+round(b.x/escala)+" , "+round(b.y/escala)+")",520,400);
+  text("C" + "= ("+round(c.x/escala)+" , "+round(c.y/escala)+")",540,260);
+  
+  fill(100);
+  text("AB" + "("+round((b.x-a.x)/escala)+" , "+round(-(b.y-a.y)/escala)+")",400,400);
+  text("BC" + "("+round((c.x-b.x)/escala)+" , "+round(-(c.y-b.y)/escala)+")",540,330);
+  text("CD" + "("+round((d.x-c.x)/escala)+" , "+round(-(d.y-c.y)/escala)+")",270,380);
+
   // Calcular el ángulo del vector
     float angle = atan2(start.y + pVec.y - start.y, start.x + pVec.x - start.x);
     
