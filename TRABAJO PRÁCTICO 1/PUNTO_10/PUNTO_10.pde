@@ -35,14 +35,21 @@ void draw() {
   stroke(0);
   line(200, height/2, 600, height/2); 
   line(width/2, 100, width/2, 500); 
-
+ 
+ // Dibuja los vectores
+  drawVector(a, ab);
+  drawVector(b, bc);
+  drawVector(c, cd);
+  drawVector(d, da);
  
  
 }
 
-
-void drawVector(PVector start, PVector vec) {
-  stroke(0);
+// Función para dibujar un vector desde un punto de inicio
+void drawVector(Punto start, Vector vect) {
+  PVector pVec = vect.toPVector();
+ stroke(200, 0, 0);
   strokeWeight(2);
-  line(start.x, start.y, start.x + vec.x, start.y + vec.y);
+  line(start.x, start.y, start.x + pVec.x, start.y + pVec.y);
+  
 }
