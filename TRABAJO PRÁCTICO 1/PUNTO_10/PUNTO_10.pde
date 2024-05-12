@@ -37,19 +37,39 @@ void draw() {
   line(width/2, 100, width/2, 500); 
  
  // Dibuja los vectores
+  stroke(200, 0, 0);
+  strokeWeight(2);
   drawVector(a, ab);
   drawVector(b, bc);
   drawVector(c, cd);
   drawVector(d, da);
  
+ //------Operaciones----//////
+ stroke(100, 0, 0);
+  strokeWeight(2);
+ ac=ab.restar(bc);  //Resta los vectores ab y bc para obtener el nuevo vector ac
+ drawVector(a, ac);
  
+  ac=ab.sumar(bc);  //Suma los vectores ab y bc para obtener el nuevo vector ac
+ drawVector(a, ac);
 }
 
 // Función para dibujar un vector desde un punto de inicio
 void drawVector(Punto start, Vector vect) {
   PVector pVec = vect.toPVector();
- stroke(200, 0, 0);
-  strokeWeight(2);
+
   line(start.x, start.y, start.x + pVec.x, start.y + pVec.y);
-  
+  // Calcular el ángulo del vector
+    float angle = atan2(start.y + pVec.y - start.y, start.x + pVec.x - start.x);
+    
+    // Calcular las coordenadas de las puntas de la flecha
+    float arrowSize = 8;
+    float x1 = start.x + pVec.x - arrowSize * cos(angle - PI / 6);
+    float y1 = start.y + pVec.y - arrowSize * sin(angle - PI / 6);
+    float x2 = start.x + pVec.x - arrowSize * cos(angle + PI / 6);
+    float y2 = start.y + pVec.y - arrowSize * sin(angle + PI / 6);
+    
+    // Dibujar la flecha
+    line(start.x + pVec.x, start.y + pVec.y, x1, y1);
+    line(start.x + pVec.x, start.y + pVec.y, x2, y2);
 }
