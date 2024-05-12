@@ -1,31 +1,25 @@
 class Vector {
-  Punto origen;
-  Punto destino;
+  Punto inicio;
+  Punto fin;
   
-  Vector(Punto origen, Punto destino) {
-    this.origen = origen;
-    this.destino = destino;
+  Vector(Punto inicio, Punto fin) {
+    this.inicio = inicio;
+    this.fin = fin;
   }
   
   Vector sumar(Vector otro) {
-    float nuevoX = this.destino.x + otro.destino.x - otro.origen.x;
-    float nuevoY = this.destino.y + otro.destino.y - otro.origen.y;
-    return new Vector(this.origen, new Punto(nuevoX, nuevoY));
+    float nuevoX = this.fin.x + otro.fin.x - otro.inicio.x;
+    float nuevoY = this.fin.y + otro.fin.y - otro.inicio.y;
+    return new Vector(this.inicio, new Punto(nuevoX, nuevoY));
   }
   
     Vector restar(Vector otro) {
-    float nuevoX = this.destino.x - otro.destino.x + otro.origen.x;
-    float nuevoY = this.destino.y - otro.destino.y+ otro.origen.y;
-    return new Vector(this.origen, new Punto(nuevoX, nuevoY));
+    float nuevoX = this.fin.x - otro.fin.x + otro.inicio.x;
+    float nuevoY = this.fin.y - otro.fin.y+ otro.inicio.y;
+    return new Vector(this.inicio, new Punto(nuevoX, nuevoY));
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ 
+  PVector toPVector() {
+    return new PVector(fin.x - inicio.x, fin.y - inicio.y);
+  }
 }
