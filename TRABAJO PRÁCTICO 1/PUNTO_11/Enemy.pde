@@ -23,9 +23,9 @@ class Enemy {
   }
   
 //Lanzamiento 
- void fireball(PVector playerPosition) {
+ void fireball(PVector directionPlayer) {
     stroke(255, 0, 0);
     strokeWeight(2);
-    line(position.x, position.y, playerPosition.x, playerPosition.y);
+     projectil.add(new Projectil(position, directionPlayer,"fuego.png"));
   }
 }

@@ -1,6 +1,6 @@
 Player player;
 Enemy enemy;
-
+ArrayList<Projectil> projectil;
 float campoVision=radians(30);
 
 
@@ -8,6 +8,7 @@ void setup() {
   size(800, 600);
   player = new Player(width/2, height/2, "player.png");
   enemy = new Enemy(width/4, height/2, "enemy.png");
+  projectil = new ArrayList<Projectil>();
 }
 
 
@@ -34,8 +35,14 @@ void detectarVision(){
       // Disparar bola de fuego
       enemy.fireball(player.getPosition());
     }
-    
-  
   }  
-  
+    // Actualizar y mostrar los proyectiles
+  for (int i = projectil.size() - 1; i >= 0; i--) {
+    Projectil projectile = projectil.get(i);
+    projectile.update();
+    projectile.display();
+    if (projectile.fueraDePantalla()) {
+      projectil.remove(i);
+    }
+  }
 }
