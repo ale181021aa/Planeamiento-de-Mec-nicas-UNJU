@@ -12,13 +12,11 @@ void setup() {
 
 
 void draw() {
-  background(255);
+  background(155);
   player.updatePosition(mouseX, mouseY);  
   player.display();
   enemy.display();
-  detectarVision();
-
-  
+  detectarVision(); 
   
 }
 
@@ -37,7 +35,7 @@ void detectarVision(){
       enemy.fireball(player.getPosition());
     }
     
-    
+  
   }  
   
 }

@@ -6,11 +6,15 @@ class Enemy {
   Enemy(float x, float y, String imagen) {
     position = new PVector(x, y);
     image = loadImage(imagen);  
-    image.resize(50,50);
+    image.resize(150,150);
+    direction = PI / 2;
   }
   
   PVector getPosition() {
     return position;
+  }
+   float getDirection() {
+    return direction;
   }
   
   void display() {

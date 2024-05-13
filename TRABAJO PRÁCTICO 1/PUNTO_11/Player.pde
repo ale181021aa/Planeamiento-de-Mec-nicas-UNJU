@@ -5,7 +5,7 @@ class Player {
   Player(float x, float y, String imagen) {
     position = new PVector(x, y);
     image = loadImage(imagen);
-    image.resize(50,50);
+    image.resize(100,100);
   }
   
   void updatePosition(float x, float y) {
