@@ -1,7 +1,7 @@
 class Tanque {
   PVector position;
   float angulo;
-  float distanciaMaxima = 300;
+  float distanciaMaxima = 250;
   ArrayList<Proyectil> proyectiles;
   int timer = 0; // Contador
   int intervalo = 30; // Intervalo de tiempo entre disparos (en frames)

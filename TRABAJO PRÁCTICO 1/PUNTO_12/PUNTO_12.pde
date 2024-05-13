@@ -3,7 +3,7 @@ Tanque tanque;
 Player player;
 
 void setup() {
-  size(800, 600);
+  size(700, 700);
   tanque = new Tanque(width/2, height/2);
   player = new Player();
 }
