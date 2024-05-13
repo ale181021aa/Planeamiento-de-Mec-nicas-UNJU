@@ -2,10 +2,12 @@ class Tanque {
   PVector position;
   float angulo;
    float distanciaMaxima = 300;
-  
+    ArrayList<Proyectil> proyectiles;
+    
+    
   Tanque(float x, float y) {
     position = new PVector(x, y);
-
+     proyectiles = new ArrayList<Proyectil>();
   }
   
   void dibujarTanque() {
@@ -21,4 +23,15 @@ class Tanque {
     rect(0, 0, 40, 10);
     popMatrix();
   }
+  
+   void disparar() {
+    Proyectil proyectil = new Proyectil(position.x + cos(angulo) * 65, position.y + sin(angulo) * 65, angulo);
+    proyectiles.add(proyectil);
+  }
+  
+  
+  
+  
+  
+  
 }

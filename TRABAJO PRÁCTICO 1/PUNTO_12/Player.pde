@@ -5,12 +5,12 @@ class Player {
     pos = new PVector(width/2, height/2);
   }
   
-  void update() {
+  void updatePosition() {
     pos.x = mouseX;
     pos.y = mouseY;
   }
   
-  void mostrar() {
+  void display() {
     // Dibuja el jugador
     fill(255, 0, 0);
     ellipse(pos.x, pos.y, 20, 20);
