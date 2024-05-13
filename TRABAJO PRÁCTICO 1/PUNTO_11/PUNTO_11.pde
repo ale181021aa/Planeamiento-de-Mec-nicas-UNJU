@@ -2,6 +2,8 @@ Player player;
 Enemy enemy;
 ArrayList<Projectil> projectil;
 float campoVision=radians(30);
+int timer = 0; // Contador 
+int intervalo = 30; // Intervalo de tiempo entre disparos (en frames)
 
 
 void setup() {
@@ -31,9 +33,10 @@ void detectarVision(){
     float anguloPlayer = atan2(direction_Player.y, direction_Player.x) ;
     
     // Si el ángulo está dentro del campo de visión del enemigo, disparar
-    if (abs(anguloPlayer) < campoVision / 2) {
+    if (abs(anguloPlayer) < campoVision / 2 && timer <=0) {
       // Disparar bola de fuego
-      enemy.fireball(player.getPosition());
+      enemy.fireball(direction_Player);
+      timer = intervalo;
     }
   }  
     // Actualizar y mostrar los proyectiles
@@ -44,5 +47,9 @@ void detectarVision(){
     if (projectile.fueraDePantalla()) {
       projectil.remove(i);
     }
+  }
+  
+   if (timer > 0) {
+    timer--;
   }
 }
