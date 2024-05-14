@@ -16,6 +16,7 @@ void setup() {
 a = new Punto((width/2)+ax*escala, (height/2)-ay*escala);
 b = new Punto((width/2)+bx*escala, (height/2)-by*escala);
 c = new Punto((width/2)+cx*escala, (height/2)-cy*escala);
+
 float dx = b.x + (c.x - b.x) - (b.x - a.x);
 float dy = b.y + (c.y - b.y) - (b.y - a.y);
 d= new Punto(dx, dy);
@@ -50,7 +51,7 @@ void draw() {
  ac=ab.restar(bc);  //Resta los vectores ab y bc para obtener el nuevo vector ac
  drawVector(a, ac);
  
-  ac=ab.sumar(bc);  //Suma los vectores ab y bc para obtener el nuevo vector ac
+ ac=ab.sumar(bc);  //Suma los vectores ab y bc para obtener el nuevo vector ac
  drawVector(a, ac);
 }
 
@@ -71,7 +72,7 @@ void drawVector(Punto start, Vector vect) {
   text("CD" + "("+round((d.x-c.x)/escala)+" , "+round(-(d.y-c.y)/escala)+")",270,380);
 
   // Calcular el ángulo del vector
-    float angle = atan2(start.y + pVec.y - start.y, start.x + pVec.x - start.x);
+    float angle = atan2(start.y + pVec.y , start.x + pVec.x);
     
     // Calcular las coordenadas de las puntas de la flecha
     float arrowSize = 8;
