@@ -36,8 +36,12 @@ class Tanque {
     // Ángulo hacia el jugador
     PVector direccion = PVector.sub(player.pos, position);
     angulo = atan2(direccion.y, direccion.x);
+    
+    text("Àngulo : "+(-(angulo/PI*180)),100,40);
 
     float distancia = direccion.mag();
+    text("Distancia: "+distancia, 100,70);
+    
     if (distancia < distanciaMaxima && timer <=0) {
       disparar();
       timer = intervalo;
