@@ -31,9 +31,10 @@ void detectarVision(){
    
    // Calcula el ángulo entre la dirección del enemigo y la dirección al jugador
     float anguloPlayer = atan2(direction_Player.y, direction_Player.x) ;
+    text("Ángulo:"+(-anguloPlayer*180/PI),100,50);
     
     // Si el ángulo está dentro del campo de visión del enemigo, disparar
-    if (abs(anguloPlayer) < campoVision / 2 && timer <=0) {
+    if (abs(anguloPlayer) < campoVision  && timer <=0) {
       // Disparar bola de fuego
       enemy.fireball(direction_Player);
       timer = intervalo;
